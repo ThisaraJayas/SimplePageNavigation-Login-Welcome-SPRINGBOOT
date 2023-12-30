@@ -25,6 +25,7 @@ public class TodoService {
     public void addTodo(String username, String description, LocalDate targetDate, boolean done ){
         ++todoCount;
         Todo todo = new Todo(++todoCount,username,description,targetDate,done);
+        todos.add(todo);
 
     }
 

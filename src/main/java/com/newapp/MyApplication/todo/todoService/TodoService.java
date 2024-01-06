@@ -21,7 +21,8 @@ public class TodoService {
         todos.add(new Todo(++todoCount,"Kamal","new flutter course", LocalDate.now().plusYears(2),false));
     }
     public List<Todo> findByUsername(String username){
-        return todos;
+        Predicate<Todo> todoPredicate = todo -> todo.getUsername().equalsIgnoreCase(username);
+        return todos.stream().filter(todoPredicate).toList();
     }
 
     public void addTodo(String username, String description, LocalDate targetDate, boolean done ){

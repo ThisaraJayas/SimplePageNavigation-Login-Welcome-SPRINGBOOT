@@ -1,11 +1,18 @@
 package com.newapp.MyApplication.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
+@Entity // @Entity(name="todoABC") if database table name need to specify
+// if database is there we need this (map data to database table what entity do) automatically
 public class Todo {
 
+    @Id  //database is there
+    @GeneratedValue
     private int id;
     private String username;
     @Size(min = 10 , message = "Entet atleat 10 characters")
